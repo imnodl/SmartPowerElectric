@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.custom-cursor {
+    cursor: url('img/cursor.gif'), auto;
+}
+
+
+
+/* General body and background settings */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('img/mainbg.JPG'); /* Set the background image */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Ensure the image stays in place during scrolling */
+    color: #333;
+    min-height: 100vh; /* Ensure the body takes up the full height of the viewport */
+    display: flex; /* Make the body a flex container */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    scroll-behavior: smooth;
+    position: relative; /* Needed for positioning elements within the body */
+    margin: 0; /* Remove default margins */
+    opacity: 0; /* Start the form hidden for fade-in effect */
+    animation: formFadeIn 2s 0.5s forwards; /* Form fade-in with delay */
+}
+
+
+
+
+     /* Form Fade-in Animation */
+     @keyframes formFadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+
+/* Header styling */
+header {
+    display: flex; /* Use flexbox to align content */
+    justify-content: space-between; /* Space between the logo and navbar */
+    align-items: center; /* Center logo and navbar vertically */
+    padding: 15px 30px;
+    width: 100%; /* Ensure the header takes full width */
+    position: sticky; /* Stick to the top */
+    top: 0;
+    background-color: rgba(0, 0, 0, 0); /* Semi-transparent background */
+    z-index: 10;
+    height:180px;
+}
+
+
+
+/* Logo styling */
+header .logo img {
+    width: 300px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+header .logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Navbar styling */
+header .navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Align navbar items horizontally */
+    
+}
+
+header .navbar ul li {
+    display: inline-block;
+    color:inherit;
+    margin-left: 300px;
+    box-sizing: border-box; /* Ensure border is included in the element's size */
+    margin: 0 15px;
+    padding-right: 0;
+  
+    
+}
+
+/* Navbar links  NEW*/ 
+header .navbar ul li a {
+    border: solid 1px transparent;
+    color: white;
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    position: relative;  /* Make sure the underline is positioned correctly */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-left: -300px;
+}
+
+/* Hover effect for the navbar links */
+header .navbar ul li a:hover {
+    text-decoration: none;
+    
+    transform: scale(1.1);
+}
+
+/* Add the underline effect on hover */
+header .navbar ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fcfcfc;  /* Underline color */
+    transition: width 0.3s ease; /* Smooth transition for underline width */
+}
+
+header .navbar ul li a:hover::after {
+    width: 100%; /* Expand underline to full width */
+}
+
+/* Active (clicked) link underline effect */
+header .navbar ul li a.active::after {
+    width: 100%;  /* Ensure the underline is fully visible */
+    
+    height: 3px; /* Slightly thicker underline */
+}
+
+/* Optional: Remove the underline on the unhovered state (before clicking) */
+header .navbar ul li a::after {
+    width: 0;  /* Default is no underline */
+}
+
+/* Adding some margin to the links for spacing */
+header .navbar ul li {
+    display: inline-block;
+    color: inherit;
+    margin-left: 30px;
+    box-sizing: border-box;
+    padding-right: 0;
+}
+
+
+/* Login container styling */
+
+
+
+.container{
+    
+    
+    text-align: left;
+    display: flex;
+    gap: 150px;
+    justify-content: center;
+    align-items: center;
+    
+   
+     }
+
+
+
+/* Apply the animation to the .logintag */
+.logintag {
+    font-style: italic;
+    color: whitesmoke;
+    font-size: 35px;
+    animation: tagAnimation 1.7s ease-out forwards; /* Animation properties */
+}
+/* Keyframe animation for .logintag */
+@keyframes tagAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-60px); /* Start position (above) */
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(30px); /* Move it slightly down */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Final position (original) */
+    }
+}
+
+
+
+
+
+
+/* Electric border effect on .login-container */
+.login-container {
+    padding: 30px;
+    border: 2px solid transparent; /* Base transparent border */
+    box-shadow:  0 0 50px #3361ac;
+    width: 300px; /* Set a fixed width for the login container */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    background-color: rgb(51, 97, 172, .3);
+    position: relative; /* For positioning the pseudo-element */
+    
+}
+
+/* Create the electric border effect using ::before pseudo-element */
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    
+    background-size: 200% 200%; /* Makes the glow spread */
+    animation: electricGlow 3s ease-in-out infinite, neonGlow 3s ease infinite;
+    z-index: -1; /* Ensures the border stays behind the login container */
+}
+
+/* Electric flicker/glow effect */
+@keyframes electricGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 187, 35, 1), 0 0 20px rgba(255, 187, 35, 0.8), 0 0 30px rgba(255, 187, 35, 0.6);
+    }
+    25% {
+        box-shadow: 0 0 10px rgba(255, 187, 35, 1), 0 0 30px rgba(255, 187, 35, 0.9), 0 0 40px rgba(255, 187, 35, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 5px rgba(255, 187, 35, 1), 0 0 15px rgba(255, 187, 35, 0.5), 0 0 25px rgba(255, 187, 35, 0.6);
+    }
+    75% {
+        box-shadow: 0 0 10px rgba(255, 187, 35, 1), 0 0 25px rgba(255, 187, 35, 0.8), 0 0 35px rgba(255, 187, 35, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 187, 35, 1), 0 0 20px rgba(255, 187, 35, 0.8), 0 0 30px rgba(255, 187, 35, 0.6);
+    }
+}
+
+/* Neon glow roaming effect */
+@keyframes neonGlow {
+    0% {
+        background-position: 200% 0, 0 100%, 200% 200%, 0 0;
+    }
+    25% {
+        background-position: 0 0, 100% 100%, 0 200%, 100% 0;
+    }
+    50% {
+        background-position: 200% 0, 0 100%, 200% 200%, 0 0;
+    }
+    75% {
+        background-position: 0 0, 100% 100%, 0 200%, 200% 0;
+    }
+    100% {
+        background-position: 100% 0, 0 100%, 100% 200%, 0 0;
+    }
+}
+
+
+
+
+
+
+
+.loginheader {
+    color: whitesmoke;
+    margin-bottom: 30px; /* Space below the heading */
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-style: italic;
+}
+
+.highlight {
+    color: #fbb711; /* Change to your desired color */
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%; /* Make the inputs fill the container */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding doesn't affect the element's width */
+}
+
+/* Button styles */
+button {
+    
+    width: 50%;
+    padding: 20px;
+    color: white; /* Initial text color is white */
+    border: none;
+    cursor: pointer;
+    background: none;
+    margin-top: 30px;
+    font-weight: 700;
+    position: relative; /* For positioning the neon glow */
+    overflow: hidden;
+    border-radius: 5px;
+    text-align: center; /* Center align text inside the button */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+    z-index: 1; /* Ensure text stays above the electric glow */
+}
+
+/* Electric idle animation */
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background: linear-gradient(45deg, rgba(255, 187, 35, 0.8), rgba(255, 187, 35, 0.5), rgba(255, 187, 35, 0.8));
+    background-size: 200% 200%; /* Makes the glow spread */
+    animation: electricGlow 3s ease-in-out infinite, neonGlow 3s ease infinite; /* Electric + Neon effect */
+    z-index: -1; /* Glow stays behind the text */
+}
+
+/* Electric flicker/glow effect */
+@keyframes electricGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 187, 35, 1), 0 0 20px rgba(255, 187, 35, 0.8), 0 0 30px rgba(255, 187, 35, 0.6);
+    }
+    25% {
+        box-shadow: 0 0 10px rgba(255, 187, 35, 1), 0 0 30px rgba(255, 187, 35, 0.9), 0 0 40px rgba(255, 187, 35, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 5px rgba(255, 187, 35, 1), 0 0 15px rgba(255, 187, 35, 0.5), 0 0 25px rgba(255, 187, 35, 0.6);
+    }
+    75% {
+        box-shadow: 0 0 10px rgba(255, 187, 35, 1), 0 0 25px rgba(255, 187, 35, 0.8), 0 0 35px rgba(255, 187, 35, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 187, 35, 1), 0 0 20px rgba(255, 187, 35, 0.8), 0 0 30px rgba(255, 187, 35, 0.6);
+    }
+}
+
+/* Neon glow roaming effect */
+@keyframes neonGlow {
+    0% {
+        background-position: 200% 0, 0 100%, 200% 200%, 0 0;
+    }
+    25% {
+        background-position: 0 0, 100% 100%, 0 200%, 100% 0;
+    }
+    50% {
+        background-position: 200% 0, 0 100%, 200% 200%, 0 0;
+    }
+    75% {
+        background-position: 0 0, 100% 100%, 0 200%, 200% 0;
+    }
+    100% {
+        background-position: 100% 0, 0 100%, 100% 200%, 0 0;
+    }
+}
+
+/* Hover effect - text color change and enhanced border */
+button:hover {
+    color: black; /* Change text color to black on hover */
+}
+
+button:hover::before {
+    background: linear-gradient(45deg, #3361ac, #fbb711, #fbb711, #3361ac);
+    box-shadow: 0 0 30px #fbb711, 0 0 60px #3361ac, 0 0 100px #fbb711, 0 0 150px #3361ac; /* Intensified glow */
+}
+
+
+
+#error-message{
+    font-size: 15px;
+    animation: blink 1s infinite;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        opacity: 0; /* Invisible */
+    }
+    100% {
+        opacity: 1; /* Fully visible again */
+    }
+}
+
+
+
+
+
+
+
+/* FOOTER */
+
+
+.footer {
+    margin-top: 70px; /* Decrease this value to move it higher */
+    width: 100%;
+    background: linear-gradient(
+    to right, 
+    rgba(0, 0, 0, 0), /* Fully transparent black on the left */
+    rgba(0, 0, 0, 0.3) 50%, /* Slightly opaque black at the midpoint */
+    rgba(0, 0, 0, 0) 100% /* Fully transparent black on the right */
+);
+    
+   
+    
+    
+    color: #fff; /* White text for contrast */
+    padding: 20px;
+    display: flex;
+    justify-content:center; /* Aligns items to the left */
+    align-items: center;
+    position: relative;
+    
+    
+}
+
+.footer-text {
+    display: flex;
+    align-items: center;
+    color: #d1d1d1;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-weight: 50;
+    font-size: 18px;
+    
+    
+}
+
+

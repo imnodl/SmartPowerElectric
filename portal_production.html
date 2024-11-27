@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUCTION PORTAL | SPEC</title>
+    <link rel="stylesheet" href="css/portalstyle.css">
+    <link rel="icon" href="css/img/iconlogo.ico" type="image/x-icon">
+</head>
+<body class="custom-cursor">
+
+   
+
+    <header>
+        <div class="logo">
+            <a href="index.html"> <img src="css/img/specmainwhite.png" alt="logo"></a>
+        </div>
+        
+
+        <nav class="navbar">
+            
+            
+            <ul>
+                <li><a href="login.html">LOG OUT</a></li>
+                
+                
+            </ul>
+            
+        </nav>
+        <a href="portal_production.html" class="active" ></a>
+            <button class="empbtn">PRODUCTION</button>
+        </a>
+        
+    </header>
+
+
+
+
+    <!-- Content of your page -->
+    <nav class="main-container">
+        <div class="content" id="content">
+            <div class="tagline" id="tagline">
+                <h2>Employee<span class="highlight"> Forms</span></h2>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Button Section -->
+    <div class="button-container">
+        <button class="form-btn" onclick="openModal('obFormModal')">OB Form</button>
+        <button class="form-btn" onclick="openModal('leaveFormModal')">Leave Form</button>
+        
+        
+        
+    </div>
+    
+    <!-- Leave Form Modal -->
+    <div id="leaveFormModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('leaveFormModal')">&times;</span>
+            <h2>Leave Form</h2> <br><br><br>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScEbvYF8vdCkng33Ro3W0W8SiGdP46kCbpOrt02XZKI3c_p9g/viewform?embedded=true" ></iframe>
+        </div>
+    </div>
+    
+   
+
+
+    <!-- OB Form Modal -->
+    <div id="obFormModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('obFormModal')">&times;</span>
+            <h2>OB Form</h2> <br><br><br>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfv-OT-b75b78KlyXXRolocuEbyHVxfIJmVZuwB5mZ2x-W5pg/viewform?embedded=true"></iframe>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+   <br><br><br><br><br>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h2 class="footer-text">© 2024 Smart Power Electric Corp. All Rights Reserved. </h2>
+            </div>   
+    </footer>
+
+
+</div>
+
+
+
+
+    <script src="js/portal.js"> </script>
+
+
+
+
+</body>
+</html>
